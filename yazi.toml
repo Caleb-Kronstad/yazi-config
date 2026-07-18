@@ -1,0 +1,14 @@
+[opener]
+edit = [
+    { run = 'pane=$(wezterm cli spawn --cwd "$PWD" -- nvim "$@") && wezterm cli activate-pane --pane-id "$pane"', orphan = true, for = "unix" },
+]
+open = [
+    { run = 'xdg-open "$1"', desc = "Open", for = "linux" },
+]
+
+[open]
+prepend_rules = [
+    { mime = "text/*", use = "edit" },
+    { mime = "application/json", use = "edit" },
+    { mime = "application/x-empty", use = "edit" },
+]

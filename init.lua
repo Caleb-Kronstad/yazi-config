@@ -1,7 +1,7 @@
 local pane_id = nil
 
 local function setup_pane()
-    if os.getenv("WEZTERM_PANE") == nil then
+    if os.getenv("WEZTERM_PANE") == nil or os.getenv("YAZI_LEVEL")then
         return
     end
     local handle = io.popen("wezterm cli split-pane --bottom --percent 30 -- bash")
